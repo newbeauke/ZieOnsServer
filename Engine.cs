@@ -1,6 +1,4 @@
-﻿using FaceRecognitionDotNet;
-
-namespace ZieOnsServer
+﻿namespace ZieOnsServer
 {
     public class Engine
     {

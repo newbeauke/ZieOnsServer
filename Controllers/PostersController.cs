@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using ZieOnsServer.Models;
 using ZieOnsServer.Services;
 
 namespace ZieOnsServer.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PostersController : ControllerBase
     {
         #region Front end
 
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<ActionResult> Create(string name)
         {
             Poster poster = new Poster(name, new byte[0]);
@@ -18,14 +19,14 @@ namespace ZieOnsServer.Controllers
             return Ok(poster.Id);
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
             List<Poster> posters = await PosterService.GetAsync();
             return Ok(posters);
         }
 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<ActionResult> Get(string id)
         {
             Poster poster = await PosterService.GetAsync(id);
@@ -39,7 +40,7 @@ namespace ZieOnsServer.Controllers
 
         #region IoT
 
-        [HttpPost]
+        [HttpPost("Snap")]
         public async Task<ActionResult> Snap(string id, byte[] image)
         {
             Poster poster = await PosterService.GetAsync(id);
