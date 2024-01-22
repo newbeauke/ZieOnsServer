@@ -9,6 +9,12 @@ namespace ZieOnsServer.Controllers
     [Route("api/[controller]")]
     public class PostersController : ControllerBase
     {
+        [HttpGet("Test")]
+        public ActionResult Test()
+        {
+            return Ok("Hello back to you!");
+        }
+
         #region Front end
 
         [HttpPost("Create")]
