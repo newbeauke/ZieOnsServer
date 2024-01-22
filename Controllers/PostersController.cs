@@ -18,8 +18,9 @@ namespace ZieOnsServer.Controllers
         #region Front end
 
         [HttpPost("Create")]
-        public async Task<ActionResult> Create(string name)
+        public async Task<ActionResult> Create()
         {
+            string name = Request.Form["name"];
             Poster poster = new Poster(name, new byte[0]);
             await PosterService.CreateAsync(poster);
             return Ok(poster.Id);
