@@ -20,10 +20,18 @@ namespace ZieOnsServer.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult> Create()
         {
-            string name = Request.Form["name"];
-            Poster poster = new Poster(name, new byte[0]);
-            await PosterService.CreateAsync(poster);
-            return Ok(poster.Id);
+            static String ReplaceSpacesWithPlus(string input)
+             {
+                 // Use String.Replace method to replace spaces with '+'
+                 string result = input.Replace(" ", "+");
+                 return result;
+             }
+
+             string name = Request.Form["name"];
+             string image = ReplaceSpacesWithPlus(Request.Form["image"]);
+             Poster poster = new Poster(name, image);
+             await PosterService.CreateAsync(poster);
+             return Ok(poster.Id);
         }
 
         [HttpGet("GetAll")]
