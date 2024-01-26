@@ -8,10 +8,10 @@ namespace ZieOnsServer.Models
         [BsonId]
         public string Id { get; set; }
         public string Name { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         public List<string> Snapshots { get; set; } = new List<string>();
 
-        public Poster(string name, byte[] image)
+        public Poster(string name, string image)
         {
             Id = Guid.NewGuid().ToString();
             Name = name;
