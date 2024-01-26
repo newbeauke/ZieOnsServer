@@ -4,10 +4,10 @@
 #include "img_converters.h"
 #include <base64.h>
 
-const char* ssid = "iPhone van Luc";
-const char* password =  "R@demakers1";
+const char* ssid = "OWN SSID";
+const char* password =  "OWN PASSWORD";
 
-const char* serverName = "http://172.20.10.9:5000/api/Posters/Create";
+const char* serverName = "http://OWN.IP:5000/api/Posters/Create";
 
 String baseName = "Image"; //--> NIET WEGDOEN!
 int imageNumber = 1;
