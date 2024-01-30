@@ -1,4 +1,6 @@
-﻿namespace ZieOnsServer
+﻿using Amazon.Runtime.Internal.Transform;
+
+namespace ZieOnsServer
 {
     public static class Localization
     {
@@ -13,7 +15,8 @@
             { "posters.image", "Poster image" },
             { "posters.delete", "Delete poster" },
             { "posters.none", "No posters found." },
-            { "switch_lang", "Switch language" }
+            { "switch_lang", "Switch language" },
+            { "snapshots", "Snapshot" }
         };
         private static Dictionary<string, string> Dutch = new Dictionary<string, string>()
         {
@@ -26,7 +29,8 @@
             { "posters.image", "Poster afbeelding" },
             { "posters.delete", "Verwijder poster" },
             { "posters.none", "Geen posters gevonden." },
-            { "switch_lang", "Verander taal" }
+            { "switch_lang", "Verander taal" },
+            { "snapshots", "Snapshot" }
         };
 
         public static string GetText(HttpContext context, string key)
