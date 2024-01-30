@@ -33,14 +33,25 @@ namespace ZieOnsServer.Controllers.API
             string id = Request.Form["id"];
             string image = Request.Form["image"];
 
-            // Fix plusjes
-            image = image.Replace(' ', '+');
-
             Poster poster = await PosterService.GetAsync(id);
             if (poster == null)
             {
-                return NotFound("Poster not found");
+                if (int.TryParse(id, out int index))
+                {
+                    poster = (await PosterService.GetAsync())[index];
+                    if (poster == null)
+                    {
+                        return NotFound("Poster not found");
+                    }
+                }
+                else
+                {
+                    return NotFound("Poster not found");
+                }
             }
+
+            // Fix plusjes
+            image = image.Replace(' ', '+');
 
             // Run facial recognition
             List<Visitor> visitors = new List<Visitor>();
