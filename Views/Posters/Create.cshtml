@@ -1,0 +1,15 @@
+﻿@model dynamic
+
+<h1>@ZieOnsServer.Localization.GetText(Model.Context, "create") - Posters</h1>
+
+<form method="post" action="@Url.Action("Index", "Posters")">
+    <input type="submit" value="@ZieOnsServer.Localization.GetText(Model.Context, "back")" />
+</form>
+
+<form method="post" action="@Url.Action("Create_Button", "Posters")" enctype="multipart/form-data">
+    <label>@ZieOnsServer.Localization.GetText(Model.Context, "posters.name")</label>
+    <input type="text" name="name" />
+    <label>@ZieOnsServer.Localization.GetText(Model.Context, "posters.image")</label>
+    <input type="file" name="image" />
+    <input type="submit" value="@ZieOnsServer.Localization.GetText(Model.Context, "create")" />
+</form>

@@ -3,37 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using ZieOnsServer.Models;
 using ZieOnsServer.Services;
 
-namespace ZieOnsServer.Controllers
+namespace ZieOnsServer.Controllers.API
 {
     [ApiController]
     [Route("api/[controller]")]
     public class PostersController : ControllerBase
     {
-        [HttpGet("Test")]
-        public ActionResult Test()
-        {
-            return Ok("Hello back to you!");
-        }
-
-        #region Front end
-
-        [HttpPost("Create")]
-        public async Task<ActionResult> Create()
-        {
-            static String ReplaceSpacesWithPlus(string input)
-             {
-                 // Use String.Replace method to replace spaces with '+'
-                 string result = input.Replace(" ", "+");
-                 return result;
-             }
-
-             string name = Request.Form["name"];
-             string image = ReplaceSpacesWithPlus(Request.Form["image"]);
-             Poster poster = new Poster(name, image);
-             await PosterService.CreateAsync(poster);
-             return Ok(poster.Id);
-        }
-
         [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
@@ -51,9 +26,6 @@ namespace ZieOnsServer.Controllers
             }
             return Ok(poster);
         }
-        #endregion
-
-        #region IoT
 
         [HttpPost("Snap")]
         public async Task<ActionResult> Snap(string id, byte[] image)
@@ -73,7 +45,5 @@ namespace ZieOnsServer.Controllers
             await PosterService.UpdateAsync(poster.Id, poster);
             return Ok();
         }
-
-        #endregion
     }
 }

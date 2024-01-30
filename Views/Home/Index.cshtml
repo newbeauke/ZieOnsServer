@@ -1,1 +1,11 @@
-﻿<p>Hi!</p>
+﻿@model dynamic
+
+<h1>@ZieOnsServer.Localization.GetText(Model.Context, "home")</h1>
+
+<form method="post" action="@Url.Action("Index", "Posters")">
+    <input type="submit" value="Posters" />
+</form>
+
+<form method="post" action="@Url.Action("SwitchLang_Button", "Home")">
+    <input type="submit" value="@ZieOnsServer.Localization.GetText(Model.Context, "switch_lang")" />
+</form>

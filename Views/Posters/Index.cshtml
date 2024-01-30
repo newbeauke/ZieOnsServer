@@ -1,0 +1,47 @@
+﻿@model dynamic
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+<h1>@ZieOnsServer.Localization.GetText(Model.Context, "home") - Posters</h1>
+
+<form method="post" action="@Url.Action("Index", "Home")">
+    <input type="submit" value="@ZieOnsServer.Localization.GetText(Model.Context, "back")" />
+</form>
+
+@if (Model.Posters.Count > 0)
+{
+    <table>
+        <tr>
+            <th>Poster ID</th>
+            <th>@ZieOnsServer.Localization.GetText(Model.Context, "posters.name")</th>
+            <th>@ZieOnsServer.Localization.GetText(Model.Context, "posters.image")</th>
+            <th>@ZieOnsServer.Localization.GetText(Model.Context, "manage")</th>
+        </tr>
+    @foreach (var poster in Model.Posters)
+    {       
+        <tr>
+            <td>@poster.Id</td>
+            <td>@poster.Name</td>
+            <td><img id="profileImage" src="data:image/jpg;base64, @poster.Image" width="300" height="300"></td>
+            <td>
+                <form method="post" action="@Url.Action("Delete_Button", "Posters", new { id = @poster.Id })">
+                    <input type="submit" value="@ZieOnsServer.Localization.GetText(Model.Context, "posters.delete")" />
+                </form>
+            </td>
+        </tr>
+    }
+    </table>
+}
+else
+{
+    <p>@ZieOnsServer.Localization.GetText(Model.Context, "posters.none")</p>
+}
+
+<form method="post" action="@Url.Action("Create", "Posters")">
+    <input type="submit" value="@ZieOnsServer.Localization.GetText(Model.Context, "posters.create")" />
+</form>
