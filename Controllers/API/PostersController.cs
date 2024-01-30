@@ -28,8 +28,14 @@ namespace ZieOnsServer.Controllers.API
         }
 
         [HttpPost("Snap")]
-        public async Task<ActionResult> Snap(string id, byte[] image)
+        public async Task<ActionResult> Snap()
         {
+            string id = Request.Form["id"];
+            string image = Request.Form["image"];
+
+            // Fix plusjes
+            image = image.Replace(' ', '+');
+
             Poster poster = await PosterService.GetAsync(id);
             if (poster == null)
             {

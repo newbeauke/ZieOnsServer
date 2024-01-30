@@ -31,6 +31,7 @@ table, th, td {
             <td>
                 <form method="post" action="@Url.Action("Delete_Button", "Posters", new { id = @poster.Id })">
                     <input type="submit" value="@ZieOnsServer.Localization.GetText(Model.Context, "posters.delete")" />
+
                 </form>
             </td>
         </tr>
