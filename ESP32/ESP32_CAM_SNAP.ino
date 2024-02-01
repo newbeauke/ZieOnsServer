@@ -7,8 +7,8 @@
 const char* ssid = "";
 const char* password = "";
 
-const char* serverName = "http://OWNIP:5000/api/Posters/Snap";
-const char* espId = "0";
+const char* serverName = "OwnIp:5000/api/Posters/Snap";
+int espId = 2;
 int startCounter = 0;
 
 // Pin definition for CAMERA_MODEL_AI_THINKER
@@ -29,7 +29,7 @@ int startCounter = 0;
 #define VSYNC_GPIO_NUM 25
 #define HREF_GPIO_NUM 23
 #define PCLK_GPIO_NUM 22
-//#define LED_BUILTIN        4 //--> ALLEEN NODIG VOOR LED!
+//#define LED_BUILTIN 4 //--> ALLEEN NODIG VOOR LED!
 
 //Stores the camera configuration parameters
 camera_config_t config;
@@ -97,12 +97,12 @@ void configInitCamera() {
 
   sensor_t* s = esp_camera_sensor_get();
   s->set_brightness(s, 2);                  // -2 to 2
-  s->set_contrast(s, 0);                    // -2 to 2
-  s->set_saturation(s, 0);                  // -2 to 2
+  s->set_contrast(s, 2);                    // -2 to 2
+  s->set_saturation(s, 2);                  // -2 to 2
   s->set_special_effect(s, 0);              // 0 to 6 (0 - No Effect, 1 - Negative, 2 - Grayscale, 3 - Red Tint, 4 - Green Tint, 5 - Blue Tint, 6 - Sepia)
-  s->set_whitebal(s, 0);                    // 0 = disable , 1 = enable
+  s->set_whitebal(s, 1);                    // 0 = disable , 1 = enable
   s->set_awb_gain(s, 1);                    // 0 = disable , 1 = enable
-  s->set_wb_mode(s, 4);                     // 0 to 4 - if awb_gain enabled (0 - Auto, 1 - Sunny, 2 - Cloudy, 3 - Office, 4 - Home)
+  s->set_wb_mode(s, 0);                     // 0 to 4 - if awb_gain enabled (0 - Auto, 1 - Sunny, 2 - Cloudy, 3 - Office, 4 - Home)
   s->set_exposure_ctrl(s, 1);               // 0 = disable , 1 = enable
   s->set_aec2(s, 0);                        // 0 = disable , 1 = enable
   s->set_ae_level(s, 0);                    // -2 to 2
@@ -122,12 +122,6 @@ void configInitCamera() {
 
 void loop() {
   if ((WiFi.status() == WL_CONNECTED)) {
-
-    //digitalWrite(LED_BUILTIN, HIGH); // LED AANZETTEN
-    //delay(3000);
-    //digitalWrite(LED_BUILTIN, LOW);  // LED UITZETTEN
-    //delay(3000);
-
     camera_fb_t* fb = NULL;
 
     // Take Picture with Camera
@@ -146,7 +140,7 @@ void loop() {
     String base64Encoded = base64::encode(fb->buf, fb->len);
     Serial.println(base64Encoded);
 
-    if (startCounter > 3) {
+    if (startCounter > 1) {
       WiFiClient client;
       HTTPClient http;
       http.begin(client, serverName);
