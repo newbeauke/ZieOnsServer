@@ -21,7 +21,7 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 - Download en installeer eerst de Arduino IDE van https://www.arduino.cc/en/software.
 - Ga in de IDE naar je Board Manager, en download de add-on voor ESP32's van Espressif Systems. Selecteer dan de 'AI Thinker ESP32 Cam'.
 - Verbind de ESP32 met je laptop doormiddel van een micro-usb kabel en selecteer de juiste COM-poort.
-- Open 'ESP32_CAM_SNAP.ino' in de ESP32 folder van deze repo in de IDE en update het IP in de 'serverName' met het lokale IP-adres van je laptop.
+- Open 'ESP32_CAM_SNAP.ino' in de ESP32 folder van deze repo in de IDE en update het IP in de 'serverName' met het lokale IP-adres van je laptop (te vinden met Win+R> cmd > ipconfig > en zoek naar 'IPv4 Address' onder het kopje Wi-Fi adapter)'.
 - Stel de SSID en het wachtwoord in op je WiFi-netwerk.
 - Elke ESP32 heeft een eigen ID, dit staat voor de index van de poster waarmee deze wordt geassocieerd. Zet deze in de 'espId'.
 - Upload de code vervolgens naar de ESP32. Raadpleeg eventueel https://support.arduino.cc/hc/en-us/articles/4733418441116-Upload-a-sketch-in-Arduino-IDE.
