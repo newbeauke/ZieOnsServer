@@ -16,6 +16,22 @@ namespace ZieOnsServer.Controllers.API
             return Ok(posters);
         }
 
+        [HttpGet("GetAllNested")]
+        public async Task<ActionResult> GetAllNested()
+        {
+            List<object> postersResults = new List<object>();
+            foreach (Poster poster in await PosterService.GetAsync())
+            {
+                List<object> snapshotsResults = new List<object>();
+                foreach (Snapshot snapshot in (await SnapshotService.GetAsync()).Where(s => poster.Snapshots.Contains(s.Id)))
+                {
+                    snapshotsResults.Add(new { id = snapshot.Id, dateTime = snapshot.DateTime, image = snapshot.Image });
+                }
+                postersResults.Add(new { id = poster.Id, name = poster.Name, image = poster.Image, snapshots = snapshotsResults });
+            }
+            return Ok(postersResults);
+        }
+
         [HttpGet("Get")]
         public async Task<ActionResult> Get(string id)
         {
