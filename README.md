@@ -6,7 +6,7 @@ Om het systeem klaar te maken voor een event kunnen de volgende installatieinstr
 
 De server en database draaien op een laptop die lokaal aanwezig is gedurende het evenement. Deze dient verbonden te zijn met hetzelfde WiFi-netwerk als de ESP32's.
 - Ga naar de Build folder in deze repository en download ZieOnsServer.exe, voer deze uit op de laptop.
-- Ga naar https://localhost:5000 in een webbrowser om de front-end te openen.
+- Ga naar http://localhost:5000 in een webbrowser om de front-end te openen.
 
 
 **Database:**
@@ -32,7 +32,8 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 - Zorg dat alle ESP32's up-to-date zijn met het juiste WiFi-netwerk
 - Plaats de ESP32's boven elke poster op ca. 2 meter afstand van de grond, op een hoek van 15-30 graden naar beneden gericht voor het beste resultaat, en zorg dat de ruimte voldoende verlicht is.
 - Voorzie de ESP32's van stroom en ze zullen automatisch verbinden met de server.
-- Start de webserver.
+- Start de webserver op de laotop en ga naar http://localhost:5000 in een webbrowser om de front-end te openen.
+- Ga naar de pagina 'Posters' om deze te beheren en nieuwe aan te maken. Upload een preview afbeelding van de poster en maak deze aan. De 4 recentste foto's van elke ESP32 boven een poster zullen automatisch getoond worden in de tabel. Hervers regelmatig de webpagina.
 
 
 **Open de server code voor wijzigingen:**
