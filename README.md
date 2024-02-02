@@ -28,7 +28,8 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 
 **D3 Frontend:**
 
-- Open de Verkenner: Ga naar de map waarin de D3 frontend applicatie zich bevindt.
+- Download het project: Download het project en sla het op in een map op je computer.
+- Open de Verkenner: Ga naar de map "/D3" waarin de D3 frontend applicatie zich bevindt.
 - Shift + Rechtermuisknop: Houd de Shift-toets ingedrukt en klik met de rechtermuisknop in de map. Kies de optie "Open PowerShell-venster hier" of "Open Opdrachtvenster hier", afhankelijk van je Windows-versie.
 - Installeer Live Server (indien nodig): Als Live Server nog niet is geïnstalleerd, voer dan het commando 'npm install -g live-server uit' in het geopende PowerShell- of Opdrachtvenster en druk op Enter.
 - Start Live Server: Voer het commando 'live-server' uit en druk op Enter.
