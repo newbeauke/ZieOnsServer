@@ -1,8 +1,8 @@
-Welkom bij de repo voor ZieOns, het slimme IoT project dat het mogelijk maakt om bezoekers van het ZieDit evenement te monitorenn
-Om het systeem klaar te maken voor een event kunnen de volgende installatieinstructies worden gebruikt.
+Welkom bij de repo voor ZieOns, het slimme IoT project dat het mogelijk maakt om bezoekers van het ZieDit evenement te monitoren.
+Om het systeem klaar te maken voor een event kunnen de volgende installatie instructies worden gebruikt.
 
 
-**Backend webserver**
+**Backend webserver:**
 
 De server en database draaien op een laptop die lokaal aanwezig is gedurende het evenement. Deze dient verbonden te zijn met hetzelfde WiFi-netwerk als de ESP32's.
 - Ga naar de Build folder in deze repository en download ZieOnsServer.exe, voer deze uit op de laptop.
@@ -26,13 +26,20 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 - Elke ESP32 heeft een eigen ID, dit staat voor de index van de poster waarmee deze wordt geassocieerd. Zet deze in de 'espId'.
 - Upload de code vervolgens naar de ESP32. Raadpleeg eventueel https://support.arduino.cc/hc/en-us/articles/4733418441116-Upload-a-sketch-in-Arduino-IDE.
 
+**D3 Frontend:**
+
+- Open de Verkenner: Ga naar de map waarin de D3 frontend applicatie zich bevindt.
+- Shift + Rechtermuisknop: Houd de Shift-toets ingedrukt en klik met de rechtermuisknop in de map. Kies de optie "Open PowerShell-venster hier" of "Open Opdrachtvenster hier", afhankelijk van je Windows-versie.
+- Installeer Live Server (indien nodig): Als Live Server nog niet is geïnstalleerd, voer dan het commando 'npm install -g live-server uit' in het geopende PowerShell- of Opdrachtvenster en druk op Enter.
+- Start Live Server: Voer het commando 'live-server' uit en druk op Enter.
+- Bekijk de applicatie: Open je webbrowser en ga naar het adres dat wordt weergegeven in het PowerShell- of Opdrachtvenster, meestal iets als http://127.0.0.1:8080/index.html.
 
 **Het starten van een evenement:**
 
 - Zorg dat alle ESP32's up-to-date zijn met het juiste WiFi-netwerk
 - Plaats de ESP32's boven elke poster op ca. 2 meter afstand van de grond, op een hoek van 15-30 graden naar beneden gericht voor het beste resultaat, en zorg dat de ruimte voldoende verlicht is.
 - Voorzie de ESP32's van stroom en ze zullen automatisch verbinden met de server.
-- Start de webserver op de laotop en ga naar http://localhost:5000 in een webbrowser om de front-end te openen.
+- Start de webserver op de laptop en ga naar http://localhost:5000 in een webbrowser om de front-end te openen.
 - Ga naar de pagina 'Posters' om deze te beheren en nieuwe aan te maken. Upload een preview afbeelding van de poster en maak deze aan. De 4 recentste foto's van elke ESP32 boven een poster zullen automatisch getoond worden in de tabel. Hervers regelmatig de webpagina.
 
 
