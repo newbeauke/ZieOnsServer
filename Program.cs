@@ -10,6 +10,16 @@ builder.Services.AddSession();
 
 builder.WebHost.UseUrls("http://*:5000");
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("*");
+        policy.WithMethods("*");
+        policy.WithHeaders("*");
+    });
+});
+
 // Swagger
 
 builder.Services.AddControllers();
@@ -28,6 +38,7 @@ var app = builder.Build();
 //app.UseHttpsRedirection();
 
 app.UseSession();
+app.UseCors();
 
 app.UseStaticFiles();
 
