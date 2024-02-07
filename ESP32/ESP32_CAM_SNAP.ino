@@ -7,7 +7,7 @@
 const char* ssid = "";
 const char* password = "";
 
-const char* serverName = "OwnIp:5000/api/Posters/Snap";
+const char* serverName = "http://OwnIp:5000/api/Posters/Snap";
 int espId = 2;
 int startCounter = 0;
 
