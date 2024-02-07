@@ -26,6 +26,7 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 - Elke ESP32 heeft een eigen ID, dit staat voor de index van de poster waarmee deze wordt geassocieerd. Zet deze in de 'espId'.
 - Upload de code vervolgens naar de ESP32. Raadpleeg eventueel https://support.arduino.cc/hc/en-us/articles/4733418441116-Upload-a-sketch-in-Arduino-IDE.
 
+
 **D3 Frontend:**
 
 - Download het project: Download het project en sla het op in een map op je computer.
@@ -34,6 +35,7 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 - Installeer Live Server (indien nodig): Als Live Server nog niet is geïnstalleerd, voer dan het commando 'npm install -g live-server uit' in het geopende PowerShell- of Opdrachtvenster en druk op Enter.
 - Start Live Server: Voer het commando 'live-server' uit en druk op Enter.
 - Bekijk de applicatie: Open je webbrowser en ga naar het adres dat wordt weergegeven in het PowerShell- of Opdrachtvenster, meestal iets als http://127.0.0.1:8080/index.html.
+
 
 **Het starten van een evenement:**
 
@@ -47,3 +49,23 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 **Open de server code voor wijzigingen:**
 
 Wanneer je de server code wil wijzigen, download dan deze volledige repo en open hem in Visual Studio 2022 met het ASP.NET pakket geïnstalleerd. Dubbelklik op de .sln solution file om hem in VS voor te bereiden.
+
+
+**Data Field Test importeren:**
+
+- Zorg dat (lokaal) een MongoDB database draaiende is. Indien dit niet het geval is, volg dan de eerdere stap om een MongoDB database te installeren.
+- Start MongoDB op en verbind met de applicatie (MongoDB).
+- Klik op 'Create Database' en maak vervolgens een nieuwe database aan genaamd: **ZieOns**.
+- In dezelfde stap typ je bij 'Collection Name': **Posters**.
+- Navigeer naar de net aangemaakte database (ZieOns) en klik op 'Create Collection'. Typ 
+  hier vervolgens: **Snapshots**.
+
+- De volgende stap is het importeren van de CSV bestanden. Gebruik hiervoor de zip-file (aangeleverd door docent), unzip het bestand en gebruik het wachtwoord: *Brightl@nds!2024* om het bestand vervolgens te unlocken.
+- Klik binnen de database (ZieOns) op *Posters* en vervolgens op 'ADD DATA'. Importeer hier het **ZieOns.Posters.csv** bestand.
+- Klik nu binnen de database (ZieOns) Op *Snapshots* en vervolgens op 'ADD DATA'. Importeer hier het **ZieOns.Snapshots.csv** bestand.
+- De data van de gehouden Field Test is nu geïmporteerd.
+
+
+**Documentatie Project:**
+
+Documentatie met betrekking tot dit project is terug te vinden in deze repository binnen de map **Documentatie**.
