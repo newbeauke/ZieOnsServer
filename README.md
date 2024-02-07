@@ -51,6 +51,7 @@ De software op de ESP32's dient geüpdatet te worden om verbinding te maken met 
 Wanneer je de server code wil wijzigen, download dan deze volledige repo en open hem in Visual Studio 2022 met het ASP.NET pakket geïnstalleerd. Dubbelklik op de .sln solution file om hem in VS voor te bereiden.
 
 
+Onderstaande instructies kunnen worden gebruikt om de data te importeren die is verzameld gedurende de Field Test van het ZieDit evenement.
 **Data Field Test importeren:**
 
 - Zorg dat (lokaal) een MongoDB database draaiende is. Indien dit niet het geval is, volg dan de eerdere stap om een MongoDB database te installeren.
